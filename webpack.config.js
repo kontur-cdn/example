@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        index: ['./src/index.js'],
+        index: ['babel-polyfill', './src/index.js'],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -21,7 +21,7 @@ module.exports = {
             template: 'src/index.html'
         }),
         new KonturCdnPlugin({
-            bundles: ['react--react-dom--redux'],
+            libs: ['react', 'react-dom', 'babel-polyfill'],
             cdn: "https://kontur-cdn.github.io",
         }),
     ]
